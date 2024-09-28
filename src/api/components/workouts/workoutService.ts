@@ -18,9 +18,8 @@ export const filterWorkouts = (query: WorkoutQuery) => {
 
   // Filter by tag
   if (query.tags) {
-    const queryTags = Array.isArray(query.tags) ? query.tags : [query.tags];
+    const queryTags = Array.isArray(query.tags) ? query.tags : query.tags.split(',');
 
-    // Filter workouts that include all query tags
     filteredWorkouts = filteredWorkouts.filter((workout) =>
       queryTags.every((tag) => workout.tags.includes(tag))
     );

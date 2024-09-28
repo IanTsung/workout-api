@@ -7,32 +7,30 @@ import {
 } from "./workoutService";
 import WorkoutQuery from "./workoutType";
 
-export const listTags = (req: Request, res: Response): void => {
+// Handler for fetching all available workout tags
+export const listTagsHandler = (req: Request, res: Response): void => {
   const tags = getTags();
   res.json(tags);
 };
 
-export const getWorkouts = (req: Request, res: Response): void => {
-  const { tags, searchName, duration, durationMin, durationMax } = req.query as Partial<WorkoutQuery>;
+// Handler for fetching workouts, with optional query param filters
+export const getWorkoutsHandler = (req: Request, res: Response): void => {
+  const query = req.query as Partial<WorkoutQuery>;
+  const isEmptyQuery = Object.values(query).every(val => !val);
 
-  if (!tags && !searchName && !duration && !durationMin && !durationMax) {
+  if (isEmptyQuery) {
     // If no query params are provided, return all workouts
     const workouts = getAllWorkouts();
     res.json(workouts);
     return;
   }
 
-  const workouts = filterWorkouts({
-    tags,
-    searchName,
-    duration,
-    durationMin,
-    durationMax,
-  });
+  const workouts = filterWorkouts(query);
   res.json(workouts);
 };
 
-export const getWorkout = (req: Request, res: Response): void => {
+// Handler for fetching a specific workout by its ID
+export const getWorkoutHandler = (req: Request, res: Response): void => {
   const { workoutId } = req.params;
   const workout = getWorkoutById(workoutId);
 
