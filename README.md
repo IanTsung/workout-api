@@ -16,6 +16,7 @@ npm start
 npm test
 
 ## Folder Structure
+```
 .
 ├── src
 │   ├── api
@@ -30,6 +31,7 @@ npm test
 ├── tests
 │   └── workout.test.ts
 └── README.md
+```
 
 ## License
 MIT License.
