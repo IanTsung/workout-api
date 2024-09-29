@@ -2,9 +2,6 @@ import { Request, Response } from "express";
 import { OpenAI, ClientOptions } from "openai";
 import { getWorkoutById, filterWorkouts } from "../workouts/workoutService";
 
-const openai_key = process.env.OPENAI_API_KEY as ClientOptions;
-const openai = new OpenAI(openai_key);
-
 // Generate a detailed description of a workout based on its ID
 export const generateWorkoutDescriptionHandler = async (req: Request, res: Response) => {
   const { workoutId } = req.params;
@@ -16,6 +13,13 @@ export const generateWorkoutDescriptionHandler = async (req: Request, res: Respo
   }
 
   try {
+    // Initialise OpenAI client
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not set');
+    }
+    const openai = new OpenAI({ apiKey });
+
     const prompt = `Generate a detailed description for the workout called ${
       workout.name
     } which involves ${workout.steps.join(", ")}.`;
@@ -43,6 +47,13 @@ export const generateBodyPartTagsHandler = async (req: Request, res: Response) =
   }
 
   try {
+    // Initialise OpenAI client
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not set');
+    }
+    const openai = new OpenAI({ apiKey });
+
     const prompt = `Identify the body parts engaged in this workout: ${workout.steps.join(", ")}`;
 
     const response = await openai.completions.create({
@@ -67,6 +78,13 @@ export const naturalQueryHandler = async (req: Request, res: Response) => {
   }
 
   try {
+    // Initialise OpenAI client
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not set');
+    }
+    const openai = new OpenAI({ apiKey });
+
     const prompt = `Convert this query to workout search parameters: ${query}`;
 
     const response = await openai.completions.create({
@@ -95,6 +113,13 @@ export const generateWorkoutHandler = async (req: Request, res: Response) => {
   }
 
   try {
+    // Initialise OpenAI client
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not set');
+    }
+    const openai = new OpenAI({ apiKey });
+
     const prompt = `Generate a workout based on these preferences: ${JSON.stringify(preferences)}`;
 
     const response = await openai.completions.create({

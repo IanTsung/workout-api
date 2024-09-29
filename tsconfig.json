@@ -14,6 +14,6 @@
     "noImplicitAny": true,                      // Raise error on expressions with an implied `any` type.
     "noEmitOnError": true                       // Do not emit outputs if there are TypeScript errors.
   },
-  "include": ["src/**/*"],                      // Include all TypeScript files in the src directory.
+  "include": ["src/**/*", "src/tests/**/*"],    // Include all TypeScript files in the src directory.
   "exclude": ["node_modules", "dist"]           // Exclude node_modules and dist directories.
 }

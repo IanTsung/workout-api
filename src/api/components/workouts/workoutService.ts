@@ -17,8 +17,8 @@ export const filterWorkouts = (query: WorkoutQuery) => {
   let filteredWorkouts = [...workouts];
 
   // Filter by tag
-  if (query.tags) {
-    const queryTags = Array.isArray(query.tags) ? query.tags : query.tags.split(',');
+  if (query.tag) {
+    const queryTags = Array.isArray(query.tag) ? query.tag : query.tag.split(',');
 
     filteredWorkouts = filteredWorkouts.filter((workout) =>
       queryTags.every((tag) => workout.tags.includes(tag))

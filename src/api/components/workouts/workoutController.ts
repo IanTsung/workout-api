@@ -1,10 +1,5 @@
 import { Request, Response } from "express";
-import {
-  getAllWorkouts,
-  filterWorkouts,
-  getWorkoutById,
-  getTags,
-} from "./workoutService";
+import { getAllWorkouts, filterWorkouts, getWorkoutById, getTags } from "./workoutService";
 import WorkoutQuery from "./workoutType";
 
 // Handler for fetching all available workout tags
