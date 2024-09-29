@@ -38,6 +38,8 @@ npm test
 │   │   └── index.ts
 │   ├── data
 │   │   └── workouts.json
+│   ├── middleware
+│   │   └── throttle.json
 │   ├── app.ts
 │   └── server.ts
 ├── tests

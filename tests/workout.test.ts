@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from '../src/app';
+import { intervalId } from '../src/middleware/throttle'; 
 
 type Workout = {
   id: string;
@@ -22,6 +23,7 @@ describe('Workout API Endpoints', () => {
 
   afterAll((done) => {
     server.close(done);
+    clearInterval(intervalId);
   });
 
   it('should return all available tags', async () => {
