@@ -24,8 +24,14 @@ npm test
 │   │   │   ├── workouts
 │   │   │   │   ├── workoutController.ts
 │   │   │   │   ├── workoutService.ts
+│   │   │   │   ├── workoutType.ts
+│   │   │   │   ├── index.ts
+│   │   │   ├── ai
+│   │   │   │   ├── aiController.ts
 │   │   │   │   ├── index.ts
 │   │   └── index.ts
+│   ├── data
+│   │   └── workouts.json
 │   ├── app.ts
 │   └── server.ts
 ├── tests
