@@ -9,11 +9,17 @@ A TypeScript-based Express server that serves workout data. This API allows user
 
 ## Installation
 - Install dependencies:
+```
 npm install
+```
 - Start the server:
+```
 npm start
+```
 - Run tests:
+```
 npm test
+```
 
 ## Folder Structure
 ```
