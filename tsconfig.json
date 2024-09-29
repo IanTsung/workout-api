@@ -7,13 +7,13 @@
     "skipLibCheck": true,                       // Skip type checking of declaration files.
     "forceConsistentCasingInFileNames": true,   // Enforce consistent casing in imports.
     "outDir": "./dist",                         // Output directory for compiled files.
-    "rootDir": "./src",                         // Root directory of the source files.
+    "rootDir": ".",                         // Root directory of the source files.
     "moduleResolution": "node",                 // Use Node module resolution strategy.
     "resolveJsonModule": true,                  // Allow importing of JSON files.
     "sourceMap": true,                          // Generate source maps for easier debugging.
     "noImplicitAny": true,                      // Raise error on expressions with an implied `any` type.
     "noEmitOnError": true                       // Do not emit outputs if there are TypeScript errors.
   },
-  "include": ["src/**/*", "src/tests/**/*"],    // Include all TypeScript files in the src directory.
+  "include": ["src/**/*", "tests/**/*"],    // Include all TypeScript files in the src directory.
   "exclude": ["node_modules", "dist"]           // Exclude node_modules and dist directories.
 }
